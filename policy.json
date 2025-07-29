@@ -9,7 +9,7 @@
         "s3:GetBucketLocation",
         "s3:GetBucketVersioning"
       ],
-      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME"
+      "Resource": "arn:aws:s3:::kurtisdunn-front-583498735026-ap-southeast-2"
     },
     {
       "Sid": "S3ObjectAccess",
@@ -22,7 +22,7 @@
         "s3:GetObjectVersion",
         "s3:DeleteObjectVersion"
       ],
-      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*"
+      "Resource": "arn:aws:s3:::kurtisdunn-front-583498735026-ap-southeast-2/*"
     },
     {
       "Sid": "S3ObjectMetadata",
@@ -32,7 +32,7 @@
         "s3:PutObjectTagging",
         "s3:GetObjectTagging"
       ],
-      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*"
+      "Resource": "arn:aws:s3:::kurtisdunn-front-583498735026-ap-southeast-2/*"
     },
     {
       "Sid": "CloudFrontInvalidation",
@@ -42,7 +42,7 @@
         "cloudfront:GetInvalidation",
         "cloudfront:ListInvalidations"
       ],
-      "Resource": "arn:aws:cloudfront::*:distribution/YOUR_DISTRIBUTION_ID"
+      "Resource": "arn:aws:cloudfront::*:distribution/E2CMX0IHBGH5T9"
     },
     {
       "Sid": "CloudFrontDistributionRead",
@@ -51,7 +51,7 @@
         "cloudfront:GetDistribution",
         "cloudfront:GetDistributionConfig"
       ],
-      "Resource": "arn:aws:cloudfront::*:distribution/YOUR_DISTRIBUTION_ID"
+      "Resource": "arn:aws:cloudfront::*:distribution/E2CMX0IHBGH5T9"
     }
   ]
 }
