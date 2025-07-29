@@ -1,0 +1,101 @@
+# .github/workflows/deploy.yml
+
+name: Deploy Frontend to AWS S3
+
+# This workflow runs on any push to the main branch.
+# This includes direct pushes and merges of pull requests.
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository's code so the job can access it.
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up the specific version of Node.js required by the project.
+      # Caching npm dependencies speeds up subsequent builds.
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      # Step 3: Install project dependencies using 'npm ci' for a clean, reliable install.
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 4: Run tests if a 'test' script is defined in package.json.
+      # The 'continue-on-error: false' ensures that the workflow will stop if tests fail.
+      - name: Run tests (if configured)
+        run: |
+          if npm run | grep -q "test"; then
+            echo "✅ Test script found. Running tests..."
+            npm test
+          else
+            echo "⚠️ No test script found in package.json, skipping tests."
+          fi
+        continue-on-error: false
+
+      # Step 5: Build the production-ready static files.
+      # This typically outputs to a 'dist' or 'build' directory.
+      - name: Build project
+        run: npm run build
+        env:
+          # You can add build-time environment variables here if needed
+          # For example, for a React app:
+          # REACT_APP_API_URL: ${{ secrets.API_URL }}
+          CI: false
+
+      # Step 6: Configure AWS credentials using secrets stored in GitHub.
+      # This allows the workflow to securely interact with your AWS account.
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      # Step 7: Deploy static files to S3 and invalidate the CloudFront cache.
+      - name: Deploy to S3 and Invalidate CloudFront
+        run: |
+          # Sync the build directory with the S3 bucket.
+          # The --delete flag removes files from the bucket that are no longer in the build directory.
+          # A long max-age cache-control header is set for all files by default for better performance.
+          echo "🚀 Syncing files to S3 bucket: ${{ secrets.S3_BUCKET_NAME }}"
+          aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} --delete --cache-control "max-age=31536000,public"
+
+          # For HTML files, we want the browser to always check for a new version.
+          # We overwrite their cache-control header. This command copies files from the bucket
+          # onto themselves, which only updates metadata without re-uploading the content.
+          echo "📝 Updating cache-control headers for HTML files..."
+          aws s3 cp s3://${{ secrets.S3_BUCKET_NAME }} s3://${{ secrets.S3_BUCKET_NAME }} --recursive \
+            --exclude "*" --include "*.html" \
+            --metadata-directive REPLACE \
+            --cache-control "no-cache,max-age=0,must-revalidate,public" --content-type "text/html"
+
+          # If you are using a CloudFront distribution, create an invalidation
+          # to purge the cache and ensure users see the latest version of the site.
+          if [ -n "${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}" ]; then
+            echo "🌐 Invalidating CloudFront distribution cache..."
+            aws cloudfront create-invalidation \
+              --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+              --paths "/*"
+          else
+            echo "⚠️ CLOUDFRONT_DISTRIBUTION_ID not set, skipping invalidation."
+          fi
+
+      # Step 8: A final step to confirm successful deployment.
+      - name: Deployment complete
+        run: |
+          echo "✅ Deployment to S3 bucket completed successfully!"
+          if [ -n "${{ secrets.CLOUDFRONT_DOMAIN_NAME }}" ]; then
+            echo "🌐 Website URL: https://${{ secrets.CLOUDFRONT_DOMAIN_NAME }}"
+          else
+            echo "ℹ️ Set the CLOUDFRONT_DOMAIN_NAME secret to display the URL here."
+          fi
