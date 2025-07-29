@@ -1,3 +1,5 @@
+#  aws cloudformation create-stack --stack-name kurtisdunn-front-end --template-body file://cf.yml --parameters ParameterKey=BucketName,ParameterValue=kurtisdunn-fron
+
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'S3 bucket configured for static website hosting with CloudFront distribution'
 
