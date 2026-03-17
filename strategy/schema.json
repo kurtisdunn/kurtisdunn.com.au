@@ -1,0 +1,533 @@
+{
+  "_comment": "Schema Markup — kurtisdunn.com.au. Each key below represents a page or page type. All markup uses JSON-LD format and should be placed in <script type='application/ld+json'> tags in the <head> of each page.",
+
+  "homepage": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://kurtisdunn.com.au/#business",
+        "name": "Kurtis Dunn — Business Automation Consulting",
+        "url": "https://kurtisdunn.com.au",
+        "logo": "https://kurtisdunn.com.au/logo.png",
+        "image": "https://kurtisdunn.com.au/og-image.png",
+        "description": "Business automation consulting for Australian SMBs. Workflow design, AI chatbots, reporting dashboards and ongoing support. Save 10+ hours a week.",
+        "founder": {
+          "@type": "Person",
+          "name": "Kurtis Dunn",
+          "url": "https://kurtisdunn.com.au/about"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "_CITY_PLACEHOLDER_",
+          "addressRegion": "_STATE_PLACEHOLDER_",
+          "addressCountry": "AU"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "_LATITUDE_PLACEHOLDER_",
+          "longitude": "_LONGITUDE_PLACEHOLDER_"
+        },
+        "telephone": "_PHONE_PLACEHOLDER_",
+        "email": "kurtis@kurtisdunn.com.au",
+        "priceRange": "$$",
+        "currenciesAccepted": "AUD",
+        "paymentAccepted": "Bank Transfer, Credit Card",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Australia"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/_LINKEDIN_PLACEHOLDER_",
+          "https://twitter.com/_TWITTER_PLACEHOLDER_"
+        ],
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "bestRating": "5",
+          "ratingCount": "_REVIEW_COUNT_PLACEHOLDER_",
+          "_comment": "Replace with real review count from Google Business Profile once available"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://kurtisdunn.com.au/#website",
+        "url": "https://kurtisdunn.com.au",
+        "name": "Kurtis Dunn — Business Automation",
+        "publisher": {
+          "@id": "https://kurtisdunn.com.au/#business"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://kurtisdunn.com.au/#webpage",
+        "url": "https://kurtisdunn.com.au",
+        "name": "Business Automation for Australian SMBs | Kurtis Dunn",
+        "isPartOf": {
+          "@id": "https://kurtisdunn.com.au/#website"
+        },
+        "about": {
+          "@id": "https://kurtisdunn.com.au/#business"
+        },
+        "description": "Save 10+ hours a week. Free automation audit for Australian businesses with 5–50 staff. No lock-in, no jargon, just results."
+      }
+    ]
+  },
+
+  "services_hub": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kurtisdunn.com.au"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://kurtisdunn.com.au/services/#service",
+        "name": "Business Automation Services",
+        "provider": {
+          "@id": "https://kurtisdunn.com.au/#business"
+        },
+        "description": "Automation audit, workflow design, AI chatbots, reporting dashboards and ongoing support for Australian small businesses.",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Australia"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Automation Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Automation Audit",
+                "description": "Free 15-minute call to identify automation opportunities in your business.",
+                "url": "https://kurtisdunn.com.au/services/automation-audit"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Workflow Design & Build",
+                "description": "Custom workflow automation designed, built, tested and documented.",
+                "url": "https://kurtisdunn.com.au/services/workflow-design"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "AI & Chatbot Setup",
+                "description": "AI chatbots and smart assistants for customer service and internal operations.",
+                "url": "https://kurtisdunn.com.au/services/ai-chatbot-setup"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Reporting & Dashboards",
+                "description": "Automated dashboards pulling live data from your existing tools.",
+                "url": "https://kurtisdunn.com.au/services/reporting-dashboards"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Ongoing Support",
+                "description": "Monthly check-ins, updates and optimisation for your automations.",
+                "url": "https://kurtisdunn.com.au/services/ongoing-support"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "about_page": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kurtisdunn.com.au"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About"
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://kurtisdunn.com.au/about/#person",
+        "name": "Kurtis Dunn",
+        "url": "https://kurtisdunn.com.au/about",
+        "image": "https://kurtisdunn.com.au/images/kurtis-dunn.jpg",
+        "jobTitle": "Business Automation Consultant",
+        "description": "Founder-led automation consulting for Australian SMBs. Workflow design, AI setup, and system integration.",
+        "worksFor": {
+          "@id": "https://kurtisdunn.com.au/#business"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/_LINKEDIN_PLACEHOLDER_"
+        ],
+        "knowsAbout": [
+          "Business Automation",
+          "Workflow Design",
+          "Zapier",
+          "Make (Integromat)",
+          "AI Chatbots",
+          "Xero Integration",
+          "Small Business Operations"
+        ]
+      }
+    ]
+  },
+
+  "faq_page": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kurtisdunn.com.au"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "FAQ"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What exactly is an automation audit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It's a free 15-minute call where I look at how your business operates and identify the repetitive tasks costing you the most time. You'll walk away with a clear picture of what to automate first — whether you work with me or not."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does business automation cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most projects run between $2,000 and $15,000 depending on complexity. Simple automations sit at the lower end. Multi-system workflows with conditional logic sit at the higher end. You'll get a fixed quote after the audit — no surprises."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will automation replace my staff?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Automation handles the repetitive tasks your staff shouldn't be doing — so they can focus on work that actually needs a human brain. Most clients redeploy saved hours into client-facing or revenue-generating work."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What tools do you use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Whatever fits your business. Common ones include Zapier, Make (Integromat), Xero, HubSpot, Monday.com, Google Workspace, Microsoft 365, and various industry-specific platforms. I don't push any particular tool — I recommend what works."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I'm not technical?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "That's fine — most of my clients aren't. I build everything, document it in plain English, and train your team. If a system requires a computer science degree to maintain, I've done my job wrong."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a typical project take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Simple automations: 1–2 weeks. Full workflow overhaul: 4–8 weeks. You'll get a timeline in the proposal after the free audit."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  "homepage_faq_section": {
+    "_comment": "Add this FAQPage schema to the homepage alongside the LocalBusiness + WebSite schema. Embed in the same @graph array.",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What exactly is an automation audit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It's a free 15-minute call where I look at how your business operates and identify the repetitive tasks costing you the most time. You'll walk away with a clear picture of what to automate first — whether you work with me or not."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does automation cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most projects run between $2,000 and $15,000 depending on complexity. You'll get a fixed quote after the audit — no surprises."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will automation replace my staff?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Automation handles repetitive tasks so your staff can focus on work that actually needs a human brain."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I'm not technical?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "That's fine — most of my clients aren't. I build everything, document it in plain English, and train your team."
+        }
+      }
+    ]
+  },
+
+  "blog_post_template": {
+    "_comment": "Use this template for all blog posts. Replace placeholder values with actual post data.",
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kurtisdunn.com.au"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://kurtisdunn.com.au/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "{POST_TITLE}"
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "headline": "{POST_TITLE}",
+        "description": "{POST_META_DESCRIPTION}",
+        "image": "{POST_OG_IMAGE_URL}",
+        "datePublished": "{YYYY-MM-DD}",
+        "dateModified": "{YYYY-MM-DD}",
+        "author": {
+          "@type": "Person",
+          "name": "Kurtis Dunn",
+          "url": "https://kurtisdunn.com.au/about"
+        },
+        "publisher": {
+          "@id": "https://kurtisdunn.com.au/#business"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://kurtisdunn.com.au/blog/{POST_SLUG}"
+        }
+      }
+    ]
+  },
+
+  "industry_page_template": {
+    "_comment": "Use for all /industries/* pages. Replace placeholders.",
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kurtisdunn.com.au"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Industries",
+            "item": "https://kurtisdunn.com.au/industries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "{INDUSTRY_NAME}"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "Business Automation for {INDUSTRY_NAME}",
+        "description": "{INDUSTRY_META_DESCRIPTION}",
+        "provider": {
+          "@id": "https://kurtisdunn.com.au/#business"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Australia"
+        },
+        "serviceType": "Business Automation Consulting"
+      }
+    ]
+  },
+
+  "pseo_industry_location_template": {
+    "_comment": "Use for all /automation/{industry}-{location} pages.",
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kurtisdunn.com.au"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Industries",
+            "item": "https://kurtisdunn.com.au/industries"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "{INDUSTRY_NAME}",
+            "item": "https://kurtisdunn.com.au/industries/{INDUSTRY_SLUG}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "{INDUSTRY_NAME} in {LOCATION_NAME}"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "Business Automation for {INDUSTRY_NAME} in {LOCATION_NAME}",
+        "description": "Automation consulting for {LOCATION_NAME} {INDUSTRY_NAME_LOWER} businesses. Workflow automation, AI tools and system integrations.",
+        "provider": {
+          "@id": "https://kurtisdunn.com.au/#business"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "{LOCATION_NAME}",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "{STATE_NAME}"
+          }
+        },
+        "serviceType": "Business Automation Consulting"
+      }
+    ]
+  },
+
+  "case_study_template": {
+    "_comment": "Use for /case-studies/{slug} pages.",
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kurtisdunn.com.au"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Case Studies",
+            "item": "https://kurtisdunn.com.au/case-studies"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "{CASE_STUDY_TITLE}"
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "headline": "{CASE_STUDY_TITLE}",
+        "description": "{CASE_STUDY_SUMMARY}",
+        "image": "{CASE_STUDY_IMAGE}",
+        "datePublished": "{YYYY-MM-DD}",
+        "author": {
+          "@type": "Person",
+          "name": "Kurtis Dunn",
+          "url": "https://kurtisdunn.com.au/about"
+        },
+        "publisher": {
+          "@id": "https://kurtisdunn.com.au/#business"
+        }
+      }
+    ]
+  },
+
+  "review_template": {
+    "_comment": "Individual review schema. Add to pages where testimonials appear. Use real client data only.",
+    "@type": "Review",
+    "author": {
+      "@type": "Person",
+      "name": "{CLIENT_NAME}"
+    },
+    "reviewBody": "{TESTIMONIAL_TEXT}",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    },
+    "itemReviewed": {
+      "@id": "https://kurtisdunn.com.au/#business"
+    }
+  }
+}

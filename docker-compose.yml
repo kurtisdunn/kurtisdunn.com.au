@@ -1,0 +1,39 @@
+services:
+  local:
+    build:
+      context: .
+      args:
+        - GEMINI_API_KEY=${GEMINI_API_KEY}
+        - RESEND_API_KEY=${RESEND_API_KEY}
+        - EMAIL_FROM=${EMAIL_FROM}
+        - KURTIS_EMAIL=${KURTIS_EMAIL}
+        - GOOGLE_SERVICE_ACCOUNT_KEY=${GOOGLE_SERVICE_ACCOUNT_KEY}
+        - GOOGLE_SHEET_ID=${GOOGLE_SHEET_ID}
+        - GOOGLE_DRIVE_FOLDER_ID=${GOOGLE_DRIVE_FOLDER_ID}
+        - GOOGLE_SHARED_DRIVE_ID=${GOOGLE_SHARED_DRIVE_ID}
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.local
+    profiles:
+      - local
+
+  prod:
+    build:
+      context: .
+      args:
+        - GEMINI_API_KEY=${GEMINI_API_KEY}
+        - RESEND_API_KEY=${RESEND_API_KEY}
+        - EMAIL_FROM=${EMAIL_FROM}
+        - KURTIS_EMAIL=${KURTIS_EMAIL}
+        - GOOGLE_SERVICE_ACCOUNT_KEY=${GOOGLE_SERVICE_ACCOUNT_KEY}
+        - GOOGLE_SHEET_ID=${GOOGLE_SHEET_ID}
+        - GOOGLE_DRIVE_FOLDER_ID=${GOOGLE_DRIVE_FOLDER_ID}
+        - GOOGLE_SHARED_DRIVE_ID=${GOOGLE_SHARED_DRIVE_ID}
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.local
+    restart: always
+    profiles:
+      - prod

@@ -1,0 +1,9 @@
+node_modules
+.next
+.git
+.env*
+_old_vite
+strategy
+.agents
+.claude
+*.md
